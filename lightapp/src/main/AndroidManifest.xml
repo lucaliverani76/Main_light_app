@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Main_light_app">
         <activity android:name=".scan_wifi"></activity>
+        <activity android:name=".light_colors_and_features"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

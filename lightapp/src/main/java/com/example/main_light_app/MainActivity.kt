@@ -1,6 +1,7 @@
 package com.example.main_light_app
 
 //import android.R
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -8,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -64,6 +65,16 @@ class ContactsAdapter(
             //Toast.makeText(mContext, "Ho cliccato!", Toast.LENGTH_SHORT).show()
             viewHolder.imageView3.setImageResource(R.drawable.ic_settings_power_24px_2);
             imgid_on[position]=R.drawable.ic_settings_power_24px_2
+        }
+
+
+        viewHolder.imageView2.setOnClickListener() {
+
+            val context: Context = it.getContext()
+            val myIntent = Intent(context, light_colors_and_features::class.java)
+            //myIntent.putExtra("key", value) //Optional parameters
+
+            context.startActivity(myIntent)
         }
     }
 

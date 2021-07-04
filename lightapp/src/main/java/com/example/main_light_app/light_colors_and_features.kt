@@ -4,10 +4,12 @@ import android.content.Context
 import android.graphics.*
 import android.os.Bundle
 import android.util.AttributeSet
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.res.ResourcesCompat
@@ -211,11 +213,20 @@ class light_colors_and_features : AppCompatActivity() {
     lateinit var brightness:TextView
     lateinit var seekBar_white:SeekBar
     lateinit var seekBar_brightness:SeekBar
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.light_colors_and_features)
         //val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+
+        toolbar=findViewById(R.id.toolbar_colors)
+        setSupportActionBar(toolbar)
+        title = "Light Settings"
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+
 
 
         myCanvasView = findViewById(R.id.imageView_)
@@ -275,5 +286,14 @@ class light_colors_and_features : AppCompatActivity() {
             }
         })
         //myCanvasView.setImageBitmap(myCanvasView.extraBitmap);
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // handle arrow click here
+        if (item.getItemId() === android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
